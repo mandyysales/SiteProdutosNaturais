@@ -58,3 +58,95 @@ header{
     width: 100%; /*400px x 400px*/
     flex: 2;
 }
+
+/* Container principal da página de produtos */
+.Pagina-Home-Produtos {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Seção de texto lateral */
+.Texto-Pag-Home-Produtos {
+    width: 20%;
+    background-color: #e4d6a7;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    color: #0a0a0a;
+    font-size: 18px;
+}
+
+/* Seção de produtos */
+.Produtos-Pag-Home-Produtos {
+    width: 45%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Estilo individual para cada produto */
+.Produto-Home {
+    background-color: #c4825a;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+}
+
+/* Nome do produto */
+.Nome-Produto-Pag-Home-Produtos h5 {
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+/* Imagem do produto */
+.Foto-Produto-Pag-Home-Produtos img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Descrição do produto */
+.Descrição-Produto-Pag-Home-Produtos p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Botão de adicionar ao carrinho */
+.AddToCart-Produto-Pag-Home {
+    background-color: #77bb7b;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #0a0a0a;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.AddToCart-Produto-Pag-Home:hover {
+    background-color: #0a0a0a;
+    color: #ffffff;
+}
+
+/* Responsividade para telas menores */
+@media screen and (max-width: 768px) {
+    .Pagina-Home-Produtos {
+        flex-direction: column;
+    }
+
+    .Texto-Pag-Home-Produtos {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .Produtos-Pag-Home-Produtos {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+}

@@ -174,3 +174,11 @@ header{
         grid-template-columns: 1fr;
     }
 }
+
+/* Footer */
+footer {
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px 0;
+}

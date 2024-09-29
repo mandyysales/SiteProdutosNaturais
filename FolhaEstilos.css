@@ -1,5 +1,10 @@
-body{    
-    font-family: Arial, Helvetica, sans-serif;
+   
+    body, html {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        background-color: #ffffff;
 }
 
 header{
@@ -66,16 +71,35 @@ header{
     padding: 20px;
     height: 100vh;
     box-sizing: border-box;
+    background-color: #e4d6a7;
 }
 
 /* Seção de texto lateral */
 .Texto-Pag-Home-Produtos {
-    width: 20%;
-    background-color: #e4d6a7;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    color: #0a0a0a;
-    font-size: 18px;
+        width: 20%;
+        background-color: #e4d6a7;
+        padding: 20px;
+        color: #0a0a0a;
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+}
+
+.Texto-Pag-Home-Produtos h1, .Texto-Pag-Home-Produtos h2 {
+    margin-bottom: 10px;
+}
+
+.VerProdutos-Botao {
+    background-color: #77bb7b;
+    border: none;
+    padding: 10px 20px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
 }
 
 /* Seção de produtos */
@@ -98,7 +122,7 @@ header{
 
 /* Nome do produto */
 .Nome-Produto-Pag-Home-Produtos h5 {
-    font-size: 20px;
+    font-size: 16px;
     color: #ffffff;
     margin-bottom: 10px;
 }
@@ -107,7 +131,7 @@ header{
 .Foto-Produto-Pag-Home-Produtos img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 20px;
     margin-bottom: 10px;
 }
 
@@ -125,7 +149,7 @@ header{
     font-size: 16px;
     color: #0a0a0a;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 20px;
     transition: background-color 0.3s ease;
 }
 

@@ -3,13 +3,16 @@
     <title>
         Produtos Naturais
     </title>
-    <link rel="stylesheet" href="FolhaEstilos.css">
+    <link rel="stylesheet" href="EstiloPaginaPrincipal.css">
 </head>
 <body>
-    <header>
+    <header id="header">
         <div class="header-menu-superior">
-            <div class="header-menu-superior-opcoes">
-                <a href="sobre.html">Sobre nós</a> 
+            <div class="header-menu-superior-opcoes1">
+                <a href="sobre.html">Sobre nós</a>                 
+            </div>
+            <div class="header-menu-superior-opcoes2">
+                <a href="sobre.html">Contato</a> 
             </div>
             <div class="header-menu-superior-login">
                 <a href="Login.html">Login</a> 
@@ -18,13 +21,13 @@
         <h3>Nome Loja</h3>
         <div class="header-menu-navegacao">
             <div>
-                <a href="">Opção 1</a> 
+                <a href="PaginaPrincipal.html">Inicio</a> 
             </div>
             <div>
-                <a href="">Opção 2</a> 
+                <a href="#destaques">Destaques</a> 
             </div>
             <div>
-                <a href="">Opção 3</a> 
+                <a href="">Produtos</a> 
             </div>
             <div>
                 <a href="">Opção 4</a> 
@@ -34,8 +37,20 @@
     </header>
 
     <main>
-
-        <div class="container-carrossel">
+        <div  id="carrossel" class="container-carrossel">
+            <div class="container-carrossel-item">
+                <div class="container-carrossel-item-texto">
+                    <h2>
+                        Alecrim
+                    </h2>
+                    <p>
+                        O alecrim (Rosmarinus officinalis) é uma erva aromática nativa da região mediterrânea, amplamente utilizada na culinária e na medicina tradicional. Suas folhas finas e verdes exalam um aroma fresco e marcante, sendo comum em pratos de carnes, pães e sopas. Além do sabor característico, o alecrim possui propriedades medicinais, como ação antioxidante e anti-inflamatória. Na aromaterapia, é conhecido por estimular a memória e a concentração, sendo associado também ao alívio do estresse e da fadiga. Cultivado facilmente, é uma planta resistente que pode crescer em jardins ou vasos domésticos.
+                    </p>
+                </div>
+                <div class="container-carrossel-item-img">
+                    <img src="images/alecrim2.png" alt="alecrim">
+                </div>
+            </div>
             <div class="container-carrossel-item">
                 <div class="container-carrossel-item-texto">
                     <h2>
@@ -46,12 +61,26 @@
                     </p>
                 </div>
                 <div class="container-carrossel-item-img">
-                    <img src="images/alecrim.png" alt="alecrim">
+                    <img src="images/alecrim2.png" alt="alecrim">
                 </div>
             </div>
+            <div class="container-carrossel-item">
+                <div class="container-carrossel-item-texto">
+                    <h2>
+                        Alecrim?
+                    </h2>
+                    <p>
+                        Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker. 
+                    </p>
+                </div>
+                <div class="container-carrossel-item-img">
+                    <img src="images/alecrim2.png" alt="alecrim">
+                </div>
+            </div>
+
         </div>
 
-        <div class="Pagina-Home-Produtos">
+        <div id="destaques"class="Pagina-Home-Produtos">
             <!--Testo Lateral ao lado de produtos-->
             <div class="Texto-Pag-Home-Produtos">
                 <h1>Produtos em destaque</h1>
@@ -120,8 +149,11 @@
                     </div>
         </div>
     </main>
-</body>
+
+    <a class="scroll-to-top" href="#header">↑</a>
+
     <footer>
         <p>© 2024 Nome da Loja</p>
     </footer>
+</body>
 </html>

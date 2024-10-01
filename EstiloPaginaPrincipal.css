@@ -8,8 +8,7 @@ body, html {
 
 a {
     text-decoration: none;
-    color: inherit;
-           
+    color: inherit;           
 }
 
 header{
@@ -46,7 +45,7 @@ header h3{
     color: #ffffff;
     display: flex;
     background-color: #77BB7B;
-    font-size: smaller;
+    font-size: 18px;
 }
 
 .header-menu-navegacao div{
@@ -92,7 +91,7 @@ input[type="radio"] {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content:first baseline; 
+    justify-content: baseline; 
     height: fit-content;
 }
 

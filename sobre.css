@@ -1,11 +1,9 @@
-* {
+body, html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
     font-family: Arial, sans-serif;
+    background-color: #ffffff;
 }
 
 a {
@@ -13,16 +11,17 @@ a {
     color: inherit;           
 }
 
-
-header{    
+header{
+    font-size: 18px;
     color: #77BB7B;
     text-align: center;
     background-color: #E4D6A7;
 }
 
-header h3{    
-    padding: 3vh;
+header h3{
+    padding: 1vh;
 }
+
 
 .header-menu-superior{
     display: flex;
@@ -32,21 +31,21 @@ header h3{
 }
 
 .header-menu-superior div{
-    color: #0A0A0A;
-    text-align: center;
-    flex:1;  
+        color: #0A0A0A;
+        text-align: center;
+        flex:1;  
 }
 
 .header-menu-superior div a:hover{
     color: #ffffff;
 }
 
+
 .header-menu-navegacao{
-    font-size: 18px;
     color: #ffffff;
     display: flex;
     background-color: #77BB7B;
-    font-size: smaller;
+    font-size: 18px;
 }
 
 .header-menu-navegacao div{
@@ -57,7 +56,6 @@ header h3{
 .header-menu-navegacao div:hover{
     background-color: #ffffff36;
 }
-
 
 .logo h1 {
     font-size: 24px;

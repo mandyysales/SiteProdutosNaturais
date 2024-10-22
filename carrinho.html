@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .total {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Carrinho de Compras</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Preço Unitário</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Produto A</td>
+            <td>2</td>
+            <td>R$ 30,00</td>
+            <td>R$ 60,00</td>
+        </tr>
+        <tr>
+            <td>Produto B</td>
+            <td>1</td>
+            <td>R$ 45,00</td>
+            <td>R$ 45,00</td>
+        </tr>
+        <tr>
+            <td>Produto C</td>
+            <td>3</td>
+            <td>R$ 20,00</td>
+            <td>R$ 60,00</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 class="total">Total: R$ 165,00</h2>
+
+<button onclick="alert('Finalizar Compra')">Finalizar Compra</button>
+
+</body>
+</html>

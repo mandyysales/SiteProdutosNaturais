@@ -154,6 +154,12 @@ ul li a:hover {
     margin: 0 10px;
 }
 
+.span-required {
+    font-size: small;
+    color: red;
+    display: none;
+}
+
 hr {
     border: none;
     height: 2px; 

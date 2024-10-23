@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-    <title>Informações</title>
-    <link rel="stylesheet" href="mapa.css">
+  <title>Informações</title>
+  <link rel="stylesheet" href="mapa.css">
 </head>
 <body>
     <header id="header">
@@ -32,7 +32,6 @@
             <div>
                 <a href="">Opção 4</a> 
             </div>
-
         </div>
     </header>
 
@@ -76,15 +75,21 @@
                         <li><a href="#">Lista de Desejos</a></li>
                     </ul>
                 </div>
-                <div class="coluna">
+                <form id="form" class="coluna">
                     <h4>CADASTRE-SE EM NOSSA NEWSLETTER</h4>
                     <p>Você poderá receber todas as nossas novidades e promoções!</p>
-                    <input type="text" placeholder="Nome" class="newsletter-input">
-                    <input type="email" placeholder="Insira seu e-mail aqui" class="newsletter-input">
-                    <button class="newsletter-btn">Inscreva-se!</button>
-                </div>
+                    <div>
+                        <input type="text" id="nome" placeholder="Nome" class="inputs required">
+                        <span class="span-required" id="nome-error" style="display: none;">Nome deve ter no mínimo 3 caracteres</span>
+                    </div>
+                    <div>
+                        <input type="email" id="email" placeholder="Insira seu e-mail aqui" class="inputs required">
+                        <span class="span-required" id="email-error" style="display: none;">Insira um e-mail válido</span>    
+                    </div>
+                    <button type="submit" class="newsletter-btn">Inscreva-se!</button>
+                </form>
             </div>
-    
+
             <div class="secao-pagamento">
                 <img src="images/visa-png.png" alt="Cartão Visa">
                 <img src="images/mastercard-png.png" alt="Cartão Mastercard">
@@ -92,32 +97,30 @@
                 <img src="images/hipercard-png.png" alt="Cartão Hipercard">
                 <img src="images/american-png.png" alt="Cartão American Express">
             </div>
-    
+
             <div class="informacao-contato">
                 <p>nome_da_empresa Produtos Naturais Ltda. - CNPJ: 00.000.000/0001-00</p> 
                 <p>Rua Júlia Lopes de Almeida, 441 - Campinas/SP - CEP 00.100-000</p>
                 <p>E-mail: contato@nome_da_loja.com.br - Fone: (43) 3323-5699</p>
                 <p>LOJA FÍSICA - CAMPINAS/SP</p>
             </div>
-    
+
             <div class="secao-social">
                 <a href="#"><img src="images/Instagram-Icon.png" alt="Instagram"></a>
                 <a href="#"><img src="images/Facebook_logo_(square).png" alt="Facebook"></a>
-                <!-- <a href="#"><img src="pinterest-logo.png" alt="Pinterest"></a> -->
                 <a href="#"><img src="images/Youtube_logo.png" alt="YouTube"></a>
                 <a href="#"><img src="images/tiktok-icon-free-png.webp" alt="TikTok"></a>
             </div>
-    
+
             <hr>
-    
-            
         </section>
     </main>
-    
 
     <footer>
         <p>© 2024 Nome da Loja</p>
     </footer>
+
+    <script src="mapa.js"></script>
 
 </body>
 </html>

@@ -2,7 +2,7 @@
 
     document.addEventListener("DOMContentLoaded", renderizarProdutos);    
         // Lista de produtos como objetos
-        const produtos = [
+        const produtosDestaque = [
             { nome: 'Alecrim', imagem: 'images/alecrim12.jpg', preco: 7.00 },
             { nome: 'Hortelam', imagem: 'images/hotelan.jpg', preco: 4.00 },
             { nome: 'Manjericao', imagem: 'images/manjericao.jpg', preco: 14.00 },
@@ -17,7 +17,7 @@
         function renderizarProdutos() {
             const container = document.getElementById('produtos-container');
             
-            produtos.forEach((produto, index) => {
+            produtosDestaque.forEach((produto, index) => {
                 // Criando o HTML do produto dinamicamente
                 const produtoHTML = `
                     <div class="Produto-Home">
@@ -81,7 +81,7 @@
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('AddToCart-Produto-Pag-Home')) {
                 const index = e.target.dataset.index;
-                const produto = produtos[index];
+                const produto = produtosDestaque[index];
                 addToCart(produto.nome, produto.imagem, produto.preco);
             }
         });

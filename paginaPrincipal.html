@@ -32,7 +32,10 @@
                 <a href="produto.html">Produtos</a> 
             </div>
             <div>
-                <a href="">Opção 4</a> 
+                <!-- Botão do carrinho -->
+                    <button class="carrinho-btn" onclick="abrirCarrinho()">
+                       <img class="imagem-carrinho" src="images/carrinho-de-compras.png" alt="Carrinho de Compras">
+                   </button></a> 
             </div>
 
         </div>
@@ -83,181 +86,121 @@
         </div>
 
         <div id="destaques" class="Pagina-Home-Produtos">
-            <!--Testo Lateral ao lado de produtos-->
             <div class="Texto-Pag-Home-Produtos">
                 <h1>Produtos em destaque</h1>
-                <br>
                 <p>Conheça os produtos que os clientes estão comprando!</p>
-                <br>
-                <p>Nossos produtos ve dos melhores produtores do país.</p>
-
+                <p>Nossos produtos vêm dos melhores produtores do país.</p>
                 <h2>Quer ver mais produtos?</h2>
                 <p>Clique no botão abaixo para ver mais</p>
                 <button class="VerProdutos-Botao">Nossos Produtos</button>
             </div>
-            <!--Produtos da pagina inicial-->
-            <div class="Produtos-Pag-Home-Produtos">
-                <!--Produto 1-->
-                <div class="Produto-Home">
-                    <div class="Nome-Produto-Pag-Home-Produtos">
-                        <h5>Alecrim</h5>
-                    </div>
-                    <div class="Foto-Produto-Pag-Home-Produtos">
-                        <img src="images/alecrim12.jpg" alt="Alecrim">
-                    </div>
-                    <div class="Descrição-Produto-Pag-Home-Produtos">
-                        <p>R$ 7,00</p>
-                        <button class="AddToCart-Produto-Pag-Home">Add to cart</button>
-                    </div>
-                </div>
-                <!--Produto 2-->
-                <div class="Produto-Home">
-                    <div class="Nome-Produto-Pag-Home-Produtos">
-                        <h5>Hortelam</h5>
-                    </div>
-                    <div class="Foto-Produto-Pag-Home-Produtos">
-                        <img src="images/hotelan.jpg" alt="Alecrim">
-                    </div>
-                    <div class="Descrição-Produto-Pag-Home-Produtos">
-                        <p>R$ 4,00</p>
-                        <button class="AddToCart-Produto-Pag-Home">Add to cart</button>
-                    </div>
-                </div>
-                <!--Produto 3-->
-                <div class="Produto-Home">
-                    <div class="Nome-Produto-Pag-Home-Produtos">
-                        <h5>Manjericao</h5>
-                    </div>
-                    <div class="Foto-Produto-Pag-Home-Produtos">
-                        <img src="images/manjericao.jpg" alt="Alecrim">
-                    </div>
-                    <div class="Descrição-Produto-Pag-Home-Produtos">
-                        <p>R$ 14,00</p>
-                        <button class="AddToCart-Produto-Pag-Home">Add to cart</button>
-                    </div>
-                </div>
-                <!--Produto 4-->
-                <div class="Produto-Home">
-                    <div class="Nome-Produto-Pag-Home-Produtos">
-                        <h5>Louro</h5>
-                    </div>
-                    <div class="Foto-Produto-Pag-Home-Produtos">
-                        <img src="images/images.jpg" alt="Alecrim">
-                    </div>
-                    <div class="Descrição-Produto-Pag-Home-Produtos">
-                        <p>R$ 5,00</p>
-                        <button class="AddToCart-Produto-Pag-Home">Add to cart</button>
-                    </div>
-                </div>
+            <div class="Produtos-Pag-Home-Produtos" id="produtos-container">                
             </div>
         </div>
+        
+        <script> 
+        // Lista de produtos como objetos
+        const produtos = [
+            { nome: 'Alecrim', imagem: 'images/alecrim12.jpg', preco: 7.00 },
+            { nome: 'Hortelam', imagem: 'images/hotelan.jpg', preco: 4.00 },
+            { nome: 'Manjericao', imagem: 'images/manjericao.jpg', preco: 14.00 },
+            { nome: 'Louro', imagem: 'images/images.jpg', preco: 5.00 }
+        ];
+
+        const carrinho = [
+            
+        ]
+        
+        // Função para adicionar um produto ao HTML
+        function renderizarProdutos() {
+            const container = document.getElementById('produtos-container');
+            
+            produtos.forEach((produto, index) => {
+                // Criando o HTML do produto dinamicamente
+                const produtoHTML = `
+                    <div class="Produto-Home">
+                        <div class="Nome-Produto-Pag-Home-Produtos">
+                            <h5>${produto.nome}</h5>
+                        </div>
+                        <div class="Foto-Produto-Pag-Home-Produtos">
+                            <img src="${produto.imagem}" alt="${produto.nome}">
+                        </div>
+                        <div class="Descrição-Produto-Pag-Home-Produtos">
+                            <p>R$ ${produto.preco.toFixed(2)}</p>
+                            <button class="AddToCart-Produto-Pag-Home" data-index="${index}">Add to cart</button>
+                        </div>
+                    </div>
+                `;
+                
+                // Adiciona o HTML ao container
+                container.innerHTML += produtoHTML;
+            });
+        }
+        
+        // Função para adicionar o produto ao carrinho
+        function addToCart(nomeProduto, imagemProduto, precoProduto) {
+            const produtoExistente = carrinho.find(produto => produto.nome === nomeProduto);
+            if (produtoExistente) {
+                produtoExistente.quantidade++;
+            } else {
+                carrinho.push({ nome: nomeProduto, imagem: imagemProduto, preco: precoProduto, quantidade: 1 });
+            }
+     // Armazena o carrinho no localStorage
+     localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    
+    showProductAddedMessage(nomeProduto);
+    updateCarrinhoPage();
+        }
+        
+        // Função para exibir a mensagem de produto adicionado
+        function showProductAddedMessage(nomeProduto) {
+            const mensagem = document.createElement('div');
+            mensagem.innerText = `${nomeProduto} foi adicionado ao carrinho!`;
+            mensagem.style.position = 'fixed';
+            mensagem.style.bottom = '20px';
+            mensagem.style.right = '20px';
+            mensagem.style.padding = '10px';
+            mensagem.style.backgroundColor = 'green';
+            mensagem.style.color = 'white';
+            document.body.appendChild(mensagem);
+        
+            setTimeout(() => mensagem.remove(), 2000);
+        }
+        
+        // Função para atualizar o carrinho (idêntica à anterior)
+        function updateCarrinhoPage() {
+            // Mantém o código de atualização do carrinho
+        }
+        
+        // Inicializa a página com produtos
+        renderizarProdutos();
+        
+        // Adiciona o evento "Add to cart"
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('AddToCart-Produto-Pag-Home')) {
+                const index = e.target.dataset.index;
+                const produto = produtos[index];
+                addToCart(produto.nome, produto.imagem, produto.preco);
+            }
+        });
+        
+        </script>
+
+            
+    </main>
+
+    <a class="scroll-to-top" href="#header">↑</a>
+
+    <footer>
+        <p>© 2024 Nome da Loja</p>
+    </footer>
 
         <script>
-            // Objeto para armazenar os itens no carrinho
-            let carrinho = [];
-            
-            // Função para adicionar o produto ao carrinho
-            function addToCart(nomeProduto, imagemProduto, precoProduto) {
-                // Verifica se o produto já está no carrinho
-                const produtoExistente = carrinho.find(produto => produto.nome === nomeProduto);
-                
-                if (produtoExistente) {
-                    // Se o produto já está no carrinho, aumenta a quantidade
-                    produtoExistente.quantidade++;
-                } else {
-                    // Se não, adiciona um novo produto ao carrinho
-                    carrinho.push({ 
-                        nome: nomeProduto, 
-                        imagem: imagemProduto, 
-                        preco: precoProduto, 
-                        quantidade: 1 
-                    });
-                }
-            
-                // Exibe a mensagem de produto adicionado
-                showProductAddedMessage(nomeProduto);
-            
-                // Atualiza a página do carrinho
-                updateCarrinhoPage();
+            // Função para abrir a página do carrinho
+            function abrirCarrinho() {
+                window.location.href = "carrinho.html";
             }
-            
-            // Função para exibir a mensagem de produto adicionado
-            function showProductAddedMessage(nomeProduto) {
-                const mensagem = document.createElement('div');
-                mensagem.innerText = `${nomeProduto} foi adicionado ao carrinho!`;
-                mensagem.style.position = 'fixed';
-                mensagem.style.bottom = '20px';
-                mensagem.style.right = '20px';
-                mensagem.style.padding = '10px';
-                mensagem.style.backgroundColor = 'green';
-                mensagem.style.color = 'white';
-                document.body.appendChild(mensagem);
-            
-                // Remove a mensagem após 2 segundos
-                setTimeout(() => {
-                    mensagem.remove();
-                }, 2000);
-            }
-            
-            // Função para atualizar o carrinho na página "Carrinho"
-            function updateCarrinhoPage() {
-                const carrinhoTableBody = document.querySelector('tbody');
-                if (!carrinhoTableBody) return;
-            
-                // Limpa a tabela do carrinho
-                carrinhoTableBody.innerHTML = '';
-            
-                let totalGeral = 0;
-            
-                // Adiciona os produtos do carrinho na tabela
-                carrinho.forEach(produto => {
-                    const row = document.createElement('tr');
-            
-                    const nomeCell = document.createElement('td');
-                    nomeCell.innerText = produto.nome;
-            
-                    const quantidadeCell = document.createElement('td');
-                    quantidadeCell.innerText = produto.quantidade;
-            
-                    const precoCell = document.createElement('td');
-                    precoCell.innerText = `R$ ${produto.preco.toFixed(2)}`;
-            
-                    const totalCell = document.createElement('td');
-                    const totalProduto = produto.quantidade * produto.preco;
-                    totalCell.innerText = `R$ ${totalProduto.toFixed(2)}`;
-            
-                    row.appendChild(nomeCell);
-                    row.appendChild(quantidadeCell);
-                    row.appendChild(precoCell);
-                    row.appendChild(totalCell);
-            
-                    carrinhoTableBody.appendChild(row);
-            
-                    // Atualiza o total geral
-                    totalGeral += totalProduto;
-                });
-            
-                // Atualiza o valor total
-                const totalElement = document.querySelector('.total');
-                if (totalElement) {
-                    totalElement.innerText = `Total: R$ ${totalGeral.toFixed(2)}`;
-                }
-            }
-            
-            // Vincula os botões de adicionar ao carrinho aos produtos
-            document.querySelectorAll('.AddToCart-Produto-Pag-Home').forEach((button, index) => {
-                button.addEventListener('click', () => {
-                    const produtoElement = button.closest('.Produto-Home');
-                    const nomeProduto = produtoElement.querySelector('.Nome-Produto-Pag-Home-Produtos h5').innerText;
-                    const imagemProduto = produtoElement.querySelector('.Foto-Produto-Pag-Home-Produtos img').src;
-                    const precoProduto = parseFloat(produtoElement.querySelector('.Descrição-Produto-Pag-Home-Produtos p').innerText.replace('R$', '').trim());
-            
-                    // Adiciona o produto ao carrinho
-                    addToCart(nomeProduto, imagemProduto, precoProduto);
-                });
-            });
-            
-            </script>
+        </script>
             
     </main>
 

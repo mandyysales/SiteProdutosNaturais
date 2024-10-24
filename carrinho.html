@@ -4,26 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link para o CSS -->
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
         }
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 20px;
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 12px;
             text-align: left;
         }
         th {
-            background-color: #f4f4f4;
+            background-color: #4CAF50;
+            color: white;
         }
         .total {
             font-weight: bold;
             font-size: 1.2em;
+            text-align: right;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .mensagem {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border-radius: 5px;
+            display: none; /* Inicialmente escondido */
         }
     </style>
 </head>
@@ -40,33 +72,58 @@
             <th>Total</th>
         </tr>
     </thead>
-    <tbody>
-        <tr>
-            <td>Produto A</td>
-            <td>2</td>
-            <td>R$ 30,00</td>
-            <td>R$ 60,00</td>
-        </tr>
-        <tr>
-            <td>Produto B</td>
-            <td>1</td>
-            <td>R$ 45,00</td>
-            <td>R$ 45,00</td>
-        </tr>
-        <tr>
-            <td>Produto C</td>
-            <td>3</td>
-            <td>R$ 20,00</td>
-            <td>R$ 60,00</td>
-        </tr>
+    <tbody id="carrinho-body">
+        <!-- Produtos do carrinho serão inseridos dinamicamente aqui -->
     </tbody>
 </table>
 
-<h2 class="total">Total: R$ 165,00</h2>
+<h2 class="total" id="carrinho-total">Total: R$ 0,00</h2>
 
-<button onclick="alert('Finalizar Compra')">Finalizar Compra</button>
+<button onclick="finalizarCompra()">Finalizar Compra</button>
 
+<div id="mensagem" class="mensagem"></div> <!-- Mensagem de sucesso -->
+
+<script>
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || []; // Recupera o carrinho do localStorage
+
+    // Função para renderizar os produtos no carrinho
+    function renderizarCarrinho() {
+        const carrinhoBody = document.getElementById('carrinho-body');
+        carrinhoBody.innerHTML = ''; // Limpa o conteúdo anterior
+
+        let totalCarrinho = 0;
+
+        carrinho.forEach(produto => {
+            const totalProduto = produto.quantidade * produto.preco;
+            totalCarrinho += totalProduto;
+
+            const produtoHTML = `
+                <tr>
+                    <td>${produto.nome}</td>
+                    <td>${produto.quantidade}</td>
+                    <td>R$ ${produto.preco.toFixed(2)}</td>
+                    <td>R$ ${totalProduto.toFixed(2)}</td>
+                </tr>
+            `;
+            carrinhoBody.innerHTML += produtoHTML;
+        });
+
+        // Atualiza o total
+        document.getElementById('carrinho-total').innerText = `Total: R$ ${totalCarrinho.toFixed(2)}`;
+    }
+
+    // Função para finalizar a compra
+    function finalizarCompra() {
+        const mensagem = document.getElementById('mensagem');
+        mensagem.innerText = 'Compra finalizada!';
+        mensagem.style.display = 'block';
+        setTimeout(() => mensagem.style.display = 'none', 2000);
+        // Aqui você pode adicionar a lógica de finalização de compra
+    }
+
+    // Inicializa o carrinho quando a página é carregada
+    window.onload = renderizarCarrinho;
+</script>
 
 </body>
 </html>
- add pagina carrinhoo 

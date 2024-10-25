@@ -5,85 +5,68 @@
     <title>
         Produtos Naturais
     </title>
-    <link rel="stylesheet" href="estiloPaginaPrincipal.css">
-
+    <link rel="stylesheet" href="estiloPaginaPrincipal.css">   
 </head>
 <body>
-    <header id="header">
-        <div class="header-menu-superior">
-            <div class="header-menu-superior-opcoes1">
-                <a href="sobre.html">Sobre nós</a>                 
-            </div>
-            <div class="header-menu-superior-opcoes2">
-                <a href="sobre.html">Contato</a> 
-            </div>
-            <div class="header-menu-superior-login">
-                <a href="Login.html">Login</a> 
-            </div>
-        </div>
-        <h3>Nome Loja</h3>
-        <div class="header-menu-navegacao">
-            <div>
-                <a href="PaginaPrincipal.html">Inicio</a> 
-            </div>
-            <div>
-                <a href="#destaques">Destaques</a> 
-            </div>
-            <div>
-                <a href="produto.html">Produtos</a> 
-            </div>
-            <div>
-                <!-- Botão do carrinho -->
-                    <button class="carrinho-btn" onclick="abrirCarrinho()">
-                       <img class="imagem-carrinho" src="images/carrinho-de-compras.png" alt="Carrinho de Compras">
-                   </button>
-            </div>
+    <!-- No arquivo principal (index.html ou outro) -->
+    <template id="menu-template">
+        <div class="header-menu-superior"></div>
+        <div class="header-menu-navegacao"></div>
+    </template>
 
-        </div>
+
+    <header id="header">
+        <nav class="header-menu-superior">          
+        </nav>
+
+        <h3>Nome Loja</h3>
+        
+        <nav class="header-menu-navegacao">
+        </nav>
     </header>
 
-    <main>
-        <div  id="carrossel" class="container-carrossel">
-            <div class="container-carrossel-item">
-                <div class="container-carrossel-item-texto">
-                    <h2>
-                        Alecrim
-                    </h2>
-                    <p>
-                        O alecrim (Rosmarinus officinalis) é uma erva aromática nativa da região mediterrânea, amplamente utilizada na culinária e na medicina tradicional. Suas folhas finas e verdes exalam um aroma fresco e marcante, sendo comum em pratos de carnes, pães e sopas. Além do sabor característico, o alecrim possui propriedades medicinais, como ação antioxidante e anti-inflamatória. Na aromaterapia, é conhecido por estimular a memória e a concentração, sendo associado também ao alívio do estresse e da fadiga. Cultivado facilmente, é uma planta resistente que pode crescer em jardins ou vasos domésticos.
-                    </p>
-                </div>
-                <div class="container-carrossel-item-img">
-                    <img src="images/alecrim3.png" alt="alecrim">
-                </div>
-            </div>
-            <div class="container-carrossel-item">
-                <div class="container-carrossel-item-texto">
-                    <h2>
-                        Alecrim?
-                    </h2>
-                    <p>
-                        Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker. 
-                    </p>
-                </div>
-                <div class="container-carrossel-item-img">
-                    <img src="images/alecrim3.png" alt="alecrim">
-                </div>
-            </div>
-            <div class="container-carrossel-item">
-                <div class="container-carrossel-item-texto">
-                    <h2>
-                        Alecrim?
-                    </h2>
-                    <p>
-                        Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker. 
-                    </p>
-                </div>
-                <div class="container-carrossel-item-img">
-                    <img src="images/alecrim3.png" alt="alecrim">
-                </div>
-            </div>
+    <main>        
+        <div class="slideshow-container">
 
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">          
+                <img src="images/carrosel/alecrim4.png" style="width:100%;" alt="alecrim">
+                <div class="text">
+                    <h3>Alecrim</h3>
+                    <p>O alecrim (Rosmarinus officinalis) é uma erva aromática nativa da região mediterrânea, amplamente utilizada na culinária e na medicina tradicional. Suas folhas finas e verdes exalam um aroma fresco e marcante, sendo comum em pratos de carnes, pães e sopas. Além do sabor característico, o alecrim possui propriedades medicinais, como ação antioxidante e anti-inflamatória. Na aromaterapia, é conhecido por estimular a memória e a concentração, sendo associado também ao alívio do estresse e da fadiga. Cultivado facilmente, é uma planta resistente que pode crescer em jardins ou vasos domésticos.
+                    </p>
+                </div>
+            </div>        
+        
+            <div class="mySlides fade">                            
+                <img src="images/carrosel/alecrim12.png" style="width:100%;" alt="alecrim">
+                <div class="text">
+                    <h3>Alecrim</h3>
+                    <p>O alecrim (Rosmarinus officinalis) é uma erva aromática nativa da região mediterrânea, amplamente utilizada na culinária e na medicina tradicional. Suas folhas finas e verdes exalam um aroma fresco e marcante, sendo comum em pratos de carnes, pães e sopas. Além do sabor característico, o alecrim possui propriedades medicinais, como ação antioxidante e anti-inflamatória. Na aromaterapia, é conhecido por estimular a memória e a concentração, sendo associado também ao alívio do estresse e da fadiga. Cultivado facilmente, é uma planta resistente que pode crescer em jardins ou vasos domésticos.
+                    </p>
+                </div>
+            </div> 
+        
+            <div class="mySlides fade">           
+                <img src="images/carrosel/alecrim4.png" style="width:100%;" alt="alecrim">
+                <div class="text">
+                    <h3>Alecrim</h3>
+                    <p>O alecrim (Rosmarinus officinalis) é uma erva aromática nativa da região mediterrânea, amplamente utilizada na culinária e na medicina tradicional. Suas folhas finas e verdes exalam um aroma fresco e marcante, sendo comum em pratos de carnes, pães e sopas. Além do sabor característico, o alecrim possui propriedades medicinais, como ação antioxidante e anti-inflamatória. Na aromaterapia, é conhecido por estimular a memória e a concentração, sendo associado também ao alívio do estresse e da fadiga. Cultivado facilmente, é uma planta resistente que pode crescer em jardins ou vasos domésticos.
+                    </p>
+                </div>
+            </div> 
+        
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)" onmouseover="changeButton(this)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)"  onmouseover="changeButton(this)">&#10095;</a>
+        </div>
+        <br>
+        
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
         </div>
 
         <div id="destaques" class="Pagina-Home-Produtos">
@@ -93,7 +76,7 @@
                 <p>Nossos produtos vêm dos melhores produtores do país.</p>
                 <h2>Quer ver mais produtos?</h2>
                 <p>Clique no botão abaixo para ver mais</p>
-                <button class="VerProdutos-Botao">Nossos Produtos</button>
+                <button class="VerProdutos-Botao" onclick="produtos.html">Nossos Produtos</button>
             </div>
             <div class="Produtos-Pag-Home-Produtos" id="produtos-container">
 
@@ -108,5 +91,7 @@
     </footer>
 
     <script src="produtosPaginaHome.js"></script>
+    <script src="carrossel.js"></script>
+    
 </body>
 </html>

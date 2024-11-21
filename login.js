@@ -20,7 +20,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (valid) {
             alert("Login realizado com sucesso!");
+            
             form.submit(); 
+            window.location.href = "paginaPrincipal.php";
         }
     });
 });

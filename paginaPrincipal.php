@@ -1,3 +1,7 @@
+<?php
+include('carregaBD.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,13 +12,6 @@
     <link rel="stylesheet" href="estiloPaginaPrincipal.css">   
 </head>
 <body>
-    <!-- No arquivo principal (index.html ou outro) -->
-    <template id="menu-template">
-        <div class="header-menu-superior"></div>
-        <div class="header-menu-navegacao"></div>
-    </template>
-
-
     <header id="header">
         <nav class="header-menu-superior">          
         </nav>

@@ -18,12 +18,12 @@ function initNavigation() {
         const linksSuperior = [
             { href: 'sobre.html', text: 'Sobre nós' },
             { href: 'sobre.html', text: 'Contato' },
-            { href: 'produto.html', text: 'Login' },
+            { href: 'login.html', text: 'Login' },
         ];
 
         const linksNavegacao = [
-            { href: 'paginaPrincipal.html', text: 'Inicio' },
-            { href: 'paginaPrincipal.html#destaques', text: 'Destaques' },
+            { href: 'paginaPrincipal.php', text: 'Inicio' },
+            { href: 'paginaPrincipal.php#destaques', text: 'Destaques' },
             { href: 'produto.html', text: 'Produtos' },
             { href: 'carrinho.html', text: 'Carrinho' },
         ];

@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('form');
     
     form.addEventListener('submit', function (event) {
-        event.preventDefault(); 
+        event.preventDefault(); // Impede o envio do formulário padrão
         
         let valid = true;
 
@@ -39,8 +39,27 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         if (valid) {
-            alert("Cadastro realizado com sucesso!");
-            form.submit(); 
+            // Coletar os dados do formulário
+            const formData = new FormData(form);
+
+            // Enviar os dados via AJAX
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'gerenciaCadastro.php', true);
+
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    // Resposta do PHP
+                    alert(xhr.responseText); // Exibe a resposta (sucesso ou erro)
+                    if (xhr.responseText.includes("Cadastro realizado com sucesso")) {
+                        window.location.href = "login.html"; // Redireciona para a página de login
+                    }
+                } else {
+                    alert("Ocorreu um erro ao processar o cadastro.");
+                }
+            };
+
+            // Enviar os dados para o PHP
+            xhr.send(formData);
         }
     });
 });

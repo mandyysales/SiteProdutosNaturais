@@ -1,5 +1,5 @@
 <?php
-include('carregaBD.php');
+include('conexao.php');
 ?>
 
 <!DOCTYPE html>
